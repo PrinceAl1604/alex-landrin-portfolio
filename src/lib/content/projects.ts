@@ -1,0 +1,283 @@
+/**
+ * Case-study content model — one source of truth per project.
+ * Edit copy here without touching components.
+ *
+ * Placeholder convention:
+ *   [[TODO: Alex to supply]]  → copy Alex still needs to write
+ *   [[metric]]                → a real number Alex will drop in (never invented)
+ *   [[project-x-shot-1.png]]  → an image Alex will export; renders as a labelled block
+ */
+
+export type ProcessStep = {
+  /** Sequential label — numbers are earned here (genuine process order). */
+  phase: "Research" | "Decisions" | "Design" | "Ship";
+  heading: string;
+  body: string;
+};
+
+export type Artifact = {
+  /** Filename shown on the placeholder block. */
+  src: string;
+  caption: string;
+  /** Aspect ratio hint, e.g. "16/10", "4/3", "1/1". */
+  ratio?: string;
+};
+
+export type Outcome = {
+  /** Use [[metric]] for anything not yet confirmed. */
+  value: string;
+  label: string;
+};
+
+export type Project = {
+  slug: string;
+  /** Zero-padded index for the editorial catalogue. */
+  index: string;
+  title: string;
+  summary: string;
+  angle: string;
+  role: string;
+  timeframe: string;
+  tools: string[];
+  tags: string[];
+  /** true → the gallery-style LogoMint case, rendered differently. */
+  gallery?: boolean;
+  cover: Artifact;
+  problem: string;
+  process: ProcessStep[];
+  artifacts: Artifact[];
+  outcomes: Outcome[];
+  /** The honest reflection — signals seniority. */
+  reflection: string;
+  /** For the gallery case only. */
+  galleryItems?: Artifact[];
+};
+
+export const projects: Project[] = [
+  {
+    slug: "ream",
+    index: "01",
+    title: "REAM",
+    summary: "Real-estate agency management platform for seller-financed land sales in West Africa.",
+    angle: "Complex domain, systems design, shipped product.",
+    role: "Product Designer & Front-end — built via Cozisoft",
+    timeframe: "2024 — present",
+    tools: ["Figma", "shadcn/ui", "React", "TypeScript", "Design Tokens"],
+    tags: ["SaaS", "FinTech", "Design System"],
+    cover: {
+      src: "ream-cover-full.jpg",
+      caption: "REAM — client finance dashboard",
+      ratio: "1600 / 1123", // exact image ratio — fits with no crop
+    },
+    problem:
+      "Seller-financed land sales in Ghana run on long payment plans, partial instalments and manual reconciliation. Agencies were tracking six-figure balances across spreadsheets and WhatsApp — errors were expensive and trust was fragile. [[TODO: Alex to refine problem framing with a real anecdote]]",
+    process: [
+      {
+        phase: "Research",
+        heading: "Mapped the money, not just the screens",
+        body: "Modelled the full lifecycle of a financed parcel — deposit, instalment schedule, arrears, reconciliation — with the finance team before drawing a single frame. The domain, not the UI, set the structure.",
+      },
+      {
+        phase: "Decisions",
+        heading: "A reconciliation workbench, not a table",
+        body: "Chose a workbench pattern (built on shadcn/ui primitives) so an operator can match payments against schedules side-by-side, with running balances always visible. Kept the data model as the interface's backbone.",
+      },
+      {
+        phase: "Design",
+        heading: "Dense data made calm",
+        body: "Designed a strict token system — spacing, tabular numerals, hairline dividers — so screens dense with figures stay legible. Status is carried by type and rule weight, not colour alone (accessibility + print parity).",
+      },
+      {
+        phase: "Ship",
+        heading: "Designed to the component, then shipped it",
+        body: "Handed off as production React components rather than static frames, so the finance module went live without a design-to-code gap. [[TODO: Alex — note launch scope]]",
+      },
+    ],
+    artifacts: [
+      { src: "[[ream-shot-1.png]]", caption: "Reconciliation Workbench — payment matching", ratio: "16/10" },
+      { src: "[[ream-shot-2.png]]", caption: "Amortization schedule + arrears view", ratio: "16/10" },
+      { src: "[[ream-shot-3.png]]", caption: "Design tokens & tabular number system", ratio: "4/3" },
+    ],
+    outcomes: [
+      { value: "[[metric]]", label: "Reconciliation time reduced" },
+      { value: "[[metric]]", label: "Parcels under management" },
+      { value: "[[metric]]", label: "Agencies onboarded" },
+    ],
+    reflection:
+      "I front-loaded the finance model and under-invested early in the empty and error states — the first operators hit edge cases (over-payment, refunds) I hadn't designed for. Next time I'd storyboard the unhappy paths in the same breath as the happy one. [[TODO: Alex to confirm or rewrite in your voice]]",
+  },
+  {
+    slug: "canton-getaway",
+    index: "02",
+    title: "Canton Getaway",
+    summary: "Land-parcel management app — payment modals, amortization viewer and a dense filter bar made usable.",
+    angle: "Dense data UX made usable.",
+    role: "Product Designer",
+    timeframe: "2024",
+    tools: ["Figma", "shadcn/ui", "Prototyping"],
+    tags: ["App UI", "Data UX"],
+    cover: {
+      src: "[[canton-cover.png]]",
+      caption: "Canton Getaway — parcel dashboard",
+      ratio: "16/10",
+    },
+    problem:
+      "Managing hundreds of land parcels means filtering, comparing and acting on rows of financial data on screens as small as a phone. The challenge was density without overwhelm. [[TODO: Alex to expand]]",
+    process: [
+      {
+        phase: "Research",
+        heading: "Watched the filtering, not the features",
+        body: "The core job was find-the-right-parcel-fast. I catalogued the real filter combinations operators used and cut the ones that only existed in theory.",
+      },
+      {
+        phase: "Decisions",
+        heading: "One filter bar, progressive disclosure",
+        body: "Chose a single persistent filter bar with disclosure over a wall of controls, so the common case stays one tap away and the rare case is still reachable.",
+      },
+      {
+        phase: "Design",
+        heading: "A payment modal you can trust",
+        body: "Designed the payment modal and amortization schedule viewer around clarity of consequence — what you owe, when, and what changes if you pay now. Numbers set in tabular figures with a clear hierarchy.",
+      },
+      {
+        phase: "Ship",
+        heading: "Mobile-first, verified small",
+        body: "Pressure-tested every layout at 360px first, then scaled up — the reverse of the usual order. [[TODO: Alex — note handoff/ship detail]]",
+      },
+    ],
+    artifacts: [
+      { src: "[[canton-shot-1.png]]", caption: "Filter bar + parcel list", ratio: "16/10" },
+      { src: "[[canton-shot-2.png]]", caption: "Payment modal", ratio: "4/3" },
+      { src: "[[canton-shot-3.png]]", caption: "Amortization schedule viewer", ratio: "4/3" },
+    ],
+    outcomes: [
+      { value: "[[metric]]", label: "Task time on parcel lookup" },
+      { value: "[[metric]]", label: "Screens designed" },
+    ],
+    reflection:
+      "I initially hid too much behind the filter's disclosure and users missed capabilities they needed. The lesson: progressive disclosure is only kind when the entry point advertises what's underneath. [[TODO: Alex to confirm]]",
+  },
+  {
+    slug: "brandkit-studio",
+    index: "03",
+    title: "BrandKit Studio",
+    summary: "A 0→1 product concept and prototype for brand-system tooling — turning brand rules into usable software.",
+    angle: "0→1 product thinking.",
+    role: "Product Designer & Concept Lead",
+    timeframe: "2023 — 2024",
+    tools: ["Figma", "Prototyping", "Design Systems"],
+    tags: ["0→1", "Concept", "Product Thinking"],
+    cover: {
+      src: "[[brandkit-cover.png]]",
+      caption: "BrandKit Studio — concept overview",
+      ratio: "16/10",
+    },
+    problem:
+      "Brand guidelines die in PDFs. BrandKit started from a question: what if a brand system were a live tool teams design *inside*, not a document they ignore? [[TODO: Alex to sharpen the thesis]]",
+    process: [
+      {
+        phase: "Research",
+        heading: "Where brand systems break down",
+        body: "Drew on 500+ LogoMint deliveries to catalogue where handed-off brands actually fail in the wild — inconsistent application, no single source of truth, no enforcement.",
+      },
+      {
+        phase: "Decisions",
+        heading: "Tokens as the product, not the by-product",
+        body: "Framed the whole concept around living design tokens: colour, type and spacing as data a team composes with, so the guideline and the output can never drift apart.",
+      },
+      {
+        phase: "Design",
+        heading: "From mark to interface in one place",
+        body: "Prototyped the core loop — define a mark and tokens, then compose on-brand artifacts — as an interactive flow, testing whether non-designers could stay on-brand unaided.",
+      },
+      {
+        phase: "Ship",
+        heading: "A prototype that argues for itself",
+        body: "Built a clickable prototype to pressure-test the concept with real users before any engineering commitment. [[TODO: Alex — outcome of testing]]",
+      },
+    ],
+    artifacts: [
+      { src: "[[brandkit-shot-1.png]]", caption: "Token editor concept", ratio: "16/10" },
+      { src: "[[brandkit-shot-2.png]]", caption: "Compose-on-brand flow", ratio: "16/10" },
+      { src: "[[brandkit-shot-3.png]]", caption: "Prototype states", ratio: "4/3" },
+    ],
+    outcomes: [
+      { value: "[[metric]]", label: "Prototype test sessions" },
+      { value: "0→1", label: "Concept to clickable prototype" },
+    ],
+    reflection:
+      "I fell in love with the tooling before fully proving the pain was acute enough to switch behaviour. If I ran it again I'd validate willingness-to-pay before polishing the interface. [[TODO: Alex to confirm]]",
+  },
+  {
+    slug: "logomint-identities",
+    index: "04",
+    title: "LogoMint Identities",
+    summary: "A curated selection of brand identity work from 500+ LogoMint deliveries — range and craft in one gallery.",
+    angle: "Range + craft.",
+    role: "Founder & Lead Brand Designer — LogoMint",
+    timeframe: "2019 — present",
+    tools: ["Illustrator", "Figma", "Brand Systems"],
+    tags: ["Brand Identity", "Gallery"],
+    gallery: true,
+    cover: {
+      src: "[[logomint-cover.png]]",
+      caption: "LogoMint — selected identities",
+      ratio: "16/10",
+    },
+    problem:
+      "Eight strong identities beat eighty thin thumbnails. The goal here is to show range and craft as one confident gallery — not to over-explain work that should speak for itself.",
+    process: [
+      {
+        phase: "Research",
+        heading: "Positioning before pixels",
+        body: "Every identity starts from the client's market position — who they're for and who they're against — before a single mark is drawn.",
+      },
+      {
+        phase: "Decisions",
+        heading: "A system, not just a logo",
+        body: "Each deliverable ships as a small system: mark, type, colour and usage rules, so the brand survives contact with the real world.",
+      },
+      {
+        phase: "Design",
+        heading: "Craft in the details",
+        body: "Optical spacing, drawn-not-defaulted letterforms, and marks that hold up from favicon to billboard.",
+      },
+      {
+        phase: "Ship",
+        heading: "500+ delivered",
+        body: "A studio-scale operation with a repeatable process — the discipline behind the range shown here.",
+      },
+    ],
+    artifacts: [],
+    galleryItems: [
+      { src: "[[logomint-auraflo.png]]", caption: "AURAFLO", ratio: "4/3" },
+      { src: "[[logomint-phinny-ai.png]]", caption: "phinny.ai", ratio: "4/3" },
+      { src: "[[logomint-kb-industrie.png]]", caption: "KB Industrie", ratio: "4/3" },
+      { src: "[[logomint-ounago-citygo.png]]", caption: "OUNAGO / CityGo Drive", ratio: "4/3" },
+      { src: "[[logomint-welconcept.png]]", caption: "WelConcept", ratio: "4/3" },
+      { src: "[[logomint-sakara.png]]", caption: "SAKARA", ratio: "4/3" },
+      { src: "[[logomint-bazaar.png]]", caption: "Bazaar", ratio: "4/3" },
+      { src: "[[logomint-ryma-ads.png]]", caption: "Ryma Ads", ratio: "4/3" },
+    ],
+    outcomes: [
+      { value: "500+", label: "Clients delivered" },
+      { value: "[[metric]]", label: "Countries served" },
+    ],
+    reflection:
+      "Volume taught me speed but early on I let some brands ship without a usage system — a beautiful mark misapplied is a wasted mark. Now every identity leaves with rules attached. [[TODO: Alex to confirm]]",
+  },
+];
+
+export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
+
+export const projectSlugs = projects.map((p) => p.slug);
+
+/** Prev / next navigation within the catalogue. */
+export function getAdjacentProjects(slug: string) {
+  const i = projects.findIndex((p) => p.slug === slug);
+  if (i === -1) return { prev: undefined, next: undefined };
+  return {
+    prev: i > 0 ? projects[i - 1] : undefined,
+    next: i < projects.length - 1 ? projects[i + 1] : undefined,
+  };
+}
