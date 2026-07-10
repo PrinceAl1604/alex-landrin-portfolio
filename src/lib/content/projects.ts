@@ -117,9 +117,9 @@ export const projects: Project[] = [
     tools: ["Figma", "Design Systems", "Prototyping"],
     tags: ["SaaS", "BPMN"],
     cover: {
-      src: "[[aiio-cover.png]]",
+      src: "aiio-cover.png",
       caption: "aiio — BPMN platform",
-      ratio: "16/10",
+      ratio: "6440 / 4580", // exact image ratio — fits with no crop
     },
     problem:
       "[[TODO: Alex to describe the problem aiio's BPMN platform solves — who the users are and what was hard before.]]",
