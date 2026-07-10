@@ -13,7 +13,7 @@ export function SelectedWork() {
       <div>
         {projects.map((project, i) => (
           <Reveal key={project.slug} delay={i * 0.04} as="div">
-            <WorkCard project={project} />
+            <WorkCard project={project} reversed={i % 2 === 1} />
           </Reveal>
         ))}
       </div>

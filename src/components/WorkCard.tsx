@@ -10,7 +10,7 @@ import { localizeProject } from "@/lib/content/projects.i18n";
  * Editorial index card — behaves like a card in a well-set catalogue.
  * Whole card is one link; hover lifts the title to accent and shifts the arrow.
  */
-export function WorkCard({ project }: { project: Project }) {
+export function WorkCard({ project, reversed = false }: { project: Project; reversed?: boolean }) {
   const { t, locale } = useLocale();
   const p = localizeProject(project, locale);
 
@@ -21,8 +21,8 @@ export function WorkCard({ project }: { project: Project }) {
       aria-label={`${t.cta.viewCaseStudy}: ${p.title}`}
     >
       <div className="grid gap-6 md:grid-cols-12 md:gap-8">
-        {/* Text column */}
-        <div className="md:col-span-6 lg:col-span-5">
+        {/* Text column — moves to the right on reversed (even) rows */}
+        <div className={`md:col-span-6 lg:col-span-5 ${reversed ? "md:order-2" : ""}`}>
           <div className="flex items-baseline gap-4">
             <span className="side-label tnum">{p.index}</span>
             <span className="side-label">{p.tags.join(" · ")}</span>
@@ -53,8 +53,8 @@ export function WorkCard({ project }: { project: Project }) {
           </span>
         </div>
 
-        {/* Visual column */}
-        <div className="md:col-span-6 lg:col-span-7">
+        {/* Visual column — moves to the left on reversed (even) rows */}
+        <div className={`md:col-span-6 lg:col-span-7 ${reversed ? "md:order-1" : ""}`}>
           <div className="overflow-hidden rounded-sm">
             <div className="transition-transform duration-500 ease-editorial group-hover:scale-[1.015] motion-reduce:transform-none">
               <Placeholder
