@@ -93,66 +93,20 @@ export const projectTranslations: Record<string, Partial<Record<Lang, ProjectTr>
     },
   },
 
-  "canton-getaway": {
+  aiio: {
     fr: {
-      summary:
-        "Application de gestion de parcelles — modales de paiement, visualiseur d'échéancier et barre de filtres dense, rendue utilisable.",
-      angle: "UX de données denses, rendue utilisable.",
+      summary: "Une plateforme BPMN pour modéliser et gérer des processus métier.",
+      angle: "Design produit pour un SaaS d'entreprise en production.",
       role: "Designer produit",
-      tags: ["UI applicative", "UX de données"],
-      problem:
-        "Gérer des centaines de parcelles, c'est filtrer, comparer et agir sur des lignes de données financières, sur des écrans parfois aussi petits qu'un téléphone. Le défi : la densité sans la surcharge. [[TODO: Alex to expand]]",
-      process: [
-        {
-          heading: "J'ai observé le filtrage, pas les fonctionnalités",
-          body: "Le vrai travail, c'était trouver-la-bonne-parcelle-vite. J'ai recensé les combinaisons de filtres réellement utilisées et supprimé celles qui n'existaient qu'en théorie.",
-        },
-        {
-          heading: "Une seule barre de filtres, à révélation progressive",
-          body: "J'ai préféré une barre de filtres unique et persistante à un mur de contrôles : le cas courant reste à un tap, le cas rare demeure accessible.",
-        },
-        {
-          heading: "Une modale de paiement digne de confiance",
-          body: "J'ai conçu la modale de paiement et le visualiseur d'échéancier autour de la clarté des conséquences — ce que vous devez, quand, et ce qui change si vous payez maintenant. Chiffres en chiffres tabulaires, hiérarchie nette.",
-        },
-        {
-          heading: "Mobile d'abord, vérifié en petit",
-          body: "J'ai éprouvé chaque mise en page à 360 px d'abord, avant d'agrandir — l'inverse de l'ordre habituel. [[TODO: Alex — note handoff/ship detail]]",
-        },
-      ],
-      outcomes: [{ label: "Temps de recherche d'une parcelle" }, { label: "Écrans conçus" }],
-      reflection:
-        "Au départ, j'ai trop caché derrière la révélation progressive et les utilisateurs manquaient des fonctions dont ils avaient besoin. La leçon : la révélation progressive n'est bienveillante que si le point d'entrée annonce ce qui se cache dessous. [[TODO: Alex to confirm]]",
+      timeframe: "2024 — aujourd'hui",
+      tags: ["SaaS", "BPMN"],
     },
     de: {
-      summary:
-        "App zur Verwaltung von Grundstücksparzellen — Zahlungs-Modals, Tilgungsplan-Viewer und eine dichte Filterleiste, nutzbar gemacht.",
-      angle: "Dichte Daten-UX, nutzbar gemacht.",
+      summary: "Eine BPMN-Plattform zum Modellieren und Verwalten von Geschäftsprozessen.",
+      angle: "Produktdesign für ein produktives Enterprise-SaaS.",
       role: "Product Designer",
-      tags: ["App-UI", "Daten-UX"],
-      problem:
-        "Hunderte Parzellen zu verwalten heißt, Zeilen voller Finanzdaten zu filtern, zu vergleichen und danach zu handeln — auf Screens so klein wie ein Handy. Die Herausforderung: Dichte ohne Überforderung. [[TODO: Alex to expand]]",
-      process: [
-        {
-          heading: "Ich habe das Filtern beobachtet, nicht die Features",
-          body: "Die Kernaufgabe war: die-richtige-Parzelle-schnell-finden. Ich habe die real genutzten Filterkombinationen erfasst und die gestrichen, die nur in der Theorie existierten.",
-        },
-        {
-          heading: "Eine Filterleiste, progressiv ausklappbar",
-          body: "Ich habe eine einzige, dauerhaft sichtbare Filterleiste einer Wand aus Bedienelementen vorgezogen: Der Normalfall bleibt einen Tap entfernt, der Sonderfall erreichbar.",
-        },
-        {
-          heading: "Ein Zahlungs-Modal, dem man vertraut",
-          body: "Zahlungs-Modal und Tilgungsplan-Viewer sind auf die Klarheit der Konsequenz ausgelegt — was du schuldest, wann, und was sich ändert, wenn du jetzt zahlst. Zahlen in Tabellenziffern, mit klarer Hierarchie.",
-        },
-        {
-          heading: "Mobile first, im Kleinen geprüft",
-          body: "Jedes Layout habe ich zuerst bei 360 px getestet und dann vergrößert — die umgekehrte Reihenfolge. [[TODO: Alex — note handoff/ship detail]]",
-        },
-      ],
-      outcomes: [{ label: "Suchzeit pro Parzelle" }, { label: "Gestaltete Screens" }],
-      reflection:
-        "Anfangs habe ich zu viel hinter der progressiven Ausklappung versteckt, und Nutzer übersahen Funktionen, die sie brauchten. Die Lektion: Progressive Disclosure ist nur dann freundlich, wenn der Einstiegspunkt zeigt, was darunter liegt. [[TODO: Alex to confirm]]",
+      timeframe: "2024 — heute",
+      tags: ["SaaS", "BPMN"],
     },
   },
 

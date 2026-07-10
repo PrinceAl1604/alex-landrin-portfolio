@@ -13,7 +13,7 @@ site from running — every placeholder renders cleanly and is clearly labelled.
 ## 🖼️ Images (drop into `public/work/`, then swap `Placeholder` → `next/image`)
 - [x] `portrait.jpg` — real portrait added (About section, 4/5).
 - [x] REAM: `ream-cover.png` added. Still needed: `ream-shot-1.png`, `ream-shot-2.png`, `ream-shot-3.png`.
-- [ ] Canton Getaway: `canton-cover.png`, `canton-shot-1.png`, `canton-shot-2.png`, `canton-shot-3.png`.
+- [ ] aiio: `aiio-cover.png`, `aiio-shot-1.png`, `aiio-shot-2.png`, `aiio-shot-3.png`.
 - [ ] BrandKit Studio: `brandkit-cover.png`, `brandkit-shot-1.png`, `brandkit-shot-2.png`, `brandkit-shot-3.png`.
 - [ ] LogoMint gallery: `logomint-cover.png` + AURAFLO, phinny.ai, KB Industrie, OUNAGO/CityGo, WelConcept, SAKARA, Bazaar, Ryma Ads.
 
@@ -21,7 +21,7 @@ site from running — every placeholder renders cleanly and is clearly labelled.
 Each `[[TODO: …]]` marks a line to refine in your own voice; each `[[metric]]` is a
 real number to drop in (never invented).
 - [ ] REAM — sharpen problem statement; confirm launch scope; confirm reflection; fill 3 outcome metrics.
-- [ ] Canton Getaway — expand problem; note handoff/ship detail; confirm reflection; fill 2 metrics.
+- [ ] aiio — write the case-study copy (problem, process, outcomes, reflection); currently placeholders.
 - [ ] BrandKit Studio — sharpen thesis; testing outcome; confirm reflection; fill metrics.
 - [ ] LogoMint — confirm countries-served metric; confirm reflection.
 
