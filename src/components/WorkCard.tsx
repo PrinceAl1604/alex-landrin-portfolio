@@ -57,7 +57,14 @@ export function WorkCard({ project }: { project: Project }) {
         <div className="md:col-span-6 lg:col-span-7">
           <div className="overflow-hidden rounded-sm">
             <div className="transition-transform duration-500 ease-editorial group-hover:scale-[1.015] motion-reduce:transform-none">
-              <Placeholder src={p.cover.src} ratio={p.cover.ratio} alt={`${p.title} — ${p.cover.caption}`} fade />
+              <Placeholder
+                src={p.cover.src}
+                ratio={p.cover.ratio}
+                alt={`${p.title} — ${p.cover.caption}`}
+                fade
+                quality={95}
+                sizes="(min-width: 1024px) 780px, (min-width: 768px) 55vw, 100vw"
+              />
             </div>
           </div>
         </div>

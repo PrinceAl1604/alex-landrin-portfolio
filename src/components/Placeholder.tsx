@@ -17,6 +17,7 @@ export function Placeholder({
   className = "",
   sizes = "(max-width: 768px) 100vw, 60vw",
   fade = false,
+  quality = 90,
 }: {
   src: string;
   caption?: string;
@@ -26,6 +27,8 @@ export function Placeholder({
   sizes?: string;
   /** Fade the bottom edge out (opacity gradient) so the image melts into the page. */
   fade?: boolean;
+  /** next/image encode quality (higher = crisper, esp. for UI screenshots). */
+  quality?: number;
 }) {
   const { t } = useLocale();
   const isPlaceholder = src.startsWith("[[");
@@ -63,6 +66,7 @@ export function Placeholder({
             alt={alt ?? caption ?? ""}
             fill
             sizes={sizes}
+            quality={quality}
             className="object-cover object-center"
           />
         </div>

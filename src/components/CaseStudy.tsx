@@ -61,7 +61,14 @@ export function CaseStudy({ project }: { project: Project }) {
         {/* Cover */}
         <Reveal delay={0.1}>
           <div className="mt-12">
-            <Placeholder src={p.cover.src} ratio={p.cover.ratio} caption={p.cover.caption} fade />
+            <Placeholder
+              src={p.cover.src}
+              ratio={p.cover.ratio}
+              caption={p.cover.caption}
+              fade
+              quality={95}
+              sizes="(min-width: 1024px) 1150px, 100vw"
+            />
           </div>
         </Reveal>
 
