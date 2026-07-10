@@ -20,7 +20,7 @@ export function WorkCard({ project, reversed = false }: { project: Project; reve
       className="group block border-t border-hairline py-8 outline-offset-4 first:border-t-0 sm:py-10"
       aria-label={`${t.cta.viewCaseStudy}: ${p.title}`}
     >
-      <div className="grid gap-6 md:grid-cols-12 md:gap-8">
+      <div className="grid gap-6 md:grid-cols-12 md:gap-12 lg:gap-16">
         {/* Text column — moves to the right on reversed (even) rows */}
         <div className={`md:col-span-6 lg:col-span-5 ${reversed ? "md:order-2" : ""}`}>
           <div className="flex items-baseline gap-4">
