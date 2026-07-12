@@ -163,14 +163,14 @@ export const projects: Project[] = [
     title: "kassiRH",
     summary: "An HR platform.",
     angle: "[[TODO: Alex — the one-line angle for kassiRH]]",
-    role: "[[TODO: Alex — your role on kassiRH]]",
+    role: "Product Designer",
     timeframe: "Nov 2025 — Feb 2026",
     tools: ["[[TODO: Alex — tools & stack]]"],
     tags: ["SaaS", "HR"],
     cover: {
-      src: "[[kassirh-cover.png]]",
-      caption: "kassiRH — [[TODO: cover caption]]",
-      ratio: "16/10",
+      src: "kassirh-cover.png",
+      caption: "kassiRH — HR platform",
+      ratio: "7103 / 5574", // exact image ratio — fits with no crop
     },
     problem:
       "[[TODO: Alex — the problem kassiRH solves, for whom, and why it matters]]",

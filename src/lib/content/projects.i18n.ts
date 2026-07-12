@@ -114,14 +114,14 @@ export const projectTranslations: Record<string, Partial<Record<Lang, ProjectTr>
     fr: {
       summary: "Une plateforme RH.",
       angle: "[[TODO: Alex — l'angle en une ligne pour kassiRH]]",
-      role: "[[TODO: Alex — votre rôle sur kassiRH]]",
+      role: "Designer produit",
       timeframe: "Nov. 2025 — févr. 2026",
       tags: ["SaaS", "RH"],
     },
     de: {
       summary: "Eine HR-Plattform.",
       angle: "[[TODO: Alex — der Ein-Zeilen-Angle für kassiRH]]",
-      role: "[[TODO: Alex — deine Rolle bei kassiRH]]",
+      role: "Product Designer",
       timeframe: "Nov. 2025 — Feb. 2026",
       tags: ["SaaS", "HR"],
     },
