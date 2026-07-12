@@ -127,12 +127,12 @@
   }
 
   /* Dark liquid glass — for the nav while it floats over the dark video hero.
-     Very translucent so the footage shows through, with light content on top. */
+     Barely-there tint so the footage clearly shows through the blur. */
   .glass-dark {
-    background-color: rgb(13 13 12 / 0.28);
-    backdrop-filter: blur(20px) saturate(1.5);
-    -webkit-backdrop-filter: blur(20px) saturate(1.5);
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.1);
+    background-color: rgb(10 10 10 / 0.08);
+    backdrop-filter: blur(14px) saturate(1.4);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.08);
   }
 
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
