@@ -52,15 +52,15 @@ export function Hero() {
       <Container className="relative z-10 flex flex-col justify-end pb-16 pt-28 sm:pb-20">
         <motion.div variants={container} initial={initial} animate={animate}>
           <motion.p variants={item} className="side-label flex items-center gap-3 !text-white/70">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#6FBEB0]" aria-hidden />
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-white" aria-hidden />
             {t.hero.eyebrow}
           </motion.p>
 
-          <h1 id="hero-heading" className="mt-6 font-display font-bold text-hero leading-[0.9] text-white">
+          <h1 id="hero-heading" className="mt-6 font-display font-bold leading-[0.95] text-white text-[clamp(2.25rem,6vw,5.5rem)]">
             <motion.span variants={item} className="block">
               {t.hero.headlineA}
             </motion.span>
-            <motion.span variants={item} className="block text-[#6FBEB0]">
+            <motion.span variants={item} className="block">
               {t.hero.headlineB}
             </motion.span>
           </h1>
@@ -75,8 +75,8 @@ export function Hero() {
           {/* Availability — quiet status line */}
           <motion.p variants={item} className="mt-6 flex items-center gap-2 font-sans text-sm text-white/90">
             <span className="relative flex h-2 w-2" aria-hidden>
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#6FBEB0]/60 motion-reduce:hidden" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#6FBEB0]" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/60 motion-reduce:hidden" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
             </span>
             {t.hero.availability}
           </motion.p>
