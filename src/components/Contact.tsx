@@ -27,7 +27,7 @@ export function Contact() {
   useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
 
   return (
-    <Section id="contact" index="06" label={t.contact.label} title={t.contact.title} lead={t.contact.lead}>
+    <Section id="contact" index="05" label={t.contact.label} title={t.contact.title} lead={t.contact.lead}>
       <div className="grid gap-12 md:grid-cols-12">
         <div className="md:col-span-7">
           <Reveal>

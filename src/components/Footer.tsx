@@ -14,7 +14,6 @@ export function Footer() {
   const links = [
     { href: "/#work", label: t.nav.work },
     { href: "/#about", label: t.nav.about },
-    { href: "/ventures", label: t.nav.ventures },
     { href: "/cv", label: t.nav.cv },
   ];
 

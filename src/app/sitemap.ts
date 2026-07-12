@@ -4,7 +4,7 @@ import { projectSlugs } from "@/lib/content/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = site.url;
-  const routes = ["", "/about", "/ventures", "/cv"].map((path) => ({
+  const routes = ["", "/about", "/cv"].map((path) => ({
     url: `${base}${path}`,
     changeFrequency: "monthly" as const,
     priority: path === "" ? 1 : 0.7,

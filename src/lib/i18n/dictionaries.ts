@@ -15,7 +15,7 @@ export const defaultLocale: Locale = "en";
 export const localeNames: Record<Locale, string> = { en: "EN", de: "DE", fr: "FR" };
 
 const en = {
-  nav: { work: "Work", about: "About", ventures: "Ventures", contact: "Contact", cv: "CV" },
+  nav: { work: "Work", about: "About", contact: "Contact", cv: "CV" },
   cta: {
     viewWork: "View work",
     downloadCv: "Download CV",
@@ -72,18 +72,6 @@ const en = {
     credentials: [
       { title: "Media Informatics — UI Design focus", org: "Technische Hochschule Brandenburg" },
       { title: "BSc Mathematics", org: "University of Buea" },
-    ],
-  },
-  ventures: {
-    label: "Ventures",
-    title: "The wider ecosystem.",
-    lead: "Beyond the design work, I build and run a small ecosystem. It's the supporting cast, not the star.",
-    inDevelopment: "In development",
-    // Same order as content/ventures.ts
-    items: [
-      { kind: "Education network", line: "A learning network for French-speaking creatives — 10,000+ community, 1,000+ students." },
-      { kind: "Software & product", line: "The product studio where I build and ship SaaS end to end." },
-      { kind: "Content SaaS + agency", line: "Francophone, expert-led content platform — in development." },
     ],
   },
   contact: {
@@ -153,7 +141,7 @@ export type Dictionary = typeof en;
  * German — full, idiomatic translation.
  * ------------------------------------------------------------------ */
 const de: DeepPartial<Dictionary> = {
-  nav: { work: "Arbeiten", about: "Über mich", ventures: "Projekte", contact: "Kontakt", cv: "Lebenslauf" },
+  nav: { work: "Arbeiten", about: "Über mich", contact: "Kontakt", cv: "Lebenslauf" },
   cta: {
     viewWork: "Arbeiten ansehen",
     downloadCv: "Lebenslauf herunterladen",
@@ -209,17 +197,6 @@ const de: DeepPartial<Dictionary> = {
     credentials: [
       { title: "Medieninformatik — Schwerpunkt UI-Design", org: "Technische Hochschule Brandenburg" },
       { title: "BSc Mathematik", org: "Universität Buea" },
-    ],
-  },
-  ventures: {
-    label: "Projekte",
-    title: "Das größere Ökosystem.",
-    lead: "Neben der Designarbeit baue und betreibe ich ein kleines Ökosystem. Die Nebenrolle, nicht der Star.",
-    inDevelopment: "In Entwicklung",
-    items: [
-      { kind: "Bildungsnetzwerk", line: "Ein Lernnetzwerk für frankofone Kreative — über 10.000 Community, über 1.000 Studierende." },
-      { kind: "Software & Produkt", line: "Das Produktstudio, in dem ich SaaS von A bis Z baue und ausliefere." },
-      { kind: "Content-SaaS + Agentur", line: "Frankofone, expertengeführte Content-Plattform — in Entwicklung." },
     ],
   },
   contact: {
@@ -285,7 +262,7 @@ const de: DeepPartial<Dictionary> = {
  * French — full, idiomatic translation.
  * ------------------------------------------------------------------ */
 const fr: DeepPartial<Dictionary> = {
-  nav: { work: "Projets", about: "À propos", ventures: "Écosystème", contact: "Contact", cv: "CV" },
+  nav: { work: "Projets", about: "À propos", contact: "Contact", cv: "CV" },
   cta: {
     viewWork: "Voir les projets",
     downloadCv: "Télécharger le CV",
@@ -341,17 +318,6 @@ const fr: DeepPartial<Dictionary> = {
     credentials: [
       { title: "Informatique média — spécialité UI Design", org: "Technische Hochschule Brandenburg" },
       { title: "Licence de mathématiques", org: "Université de Buea" },
-    ],
-  },
-  ventures: {
-    label: "Écosystème",
-    title: "L'écosystème autour.",
-    lead: "Au-delà du design, je construis et fais tourner un petit écosystème. Un second rôle, pas la vedette.",
-    inDevelopment: "En développement",
-    items: [
-      { kind: "Réseau de formation", line: "Un réseau d'apprentissage pour les créatifs francophones — plus de 10 000 membres, plus de 1 000 étudiants." },
-      { kind: "Logiciel & produit", line: "Le studio produit où je conçois et livre du SaaS de bout en bout." },
-      { kind: "SaaS de contenu + agence", line: "Plateforme de contenu francophone portée par des experts — en développement." },
     ],
   },
   contact: {

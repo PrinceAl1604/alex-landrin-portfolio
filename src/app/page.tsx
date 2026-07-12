@@ -4,7 +4,6 @@ import { Hero } from "@/components/Hero";
 import { SelectedWork } from "@/components/SelectedWork";
 import { Capabilities } from "@/components/Capabilities";
 import { About } from "@/components/About";
-import { Ventures } from "@/components/Ventures";
 import { Contact } from "@/components/Contact";
 
 export default function Home() {
@@ -16,7 +15,6 @@ export default function Home() {
         <SelectedWork />
         <Capabilities />
         <About />
-        <Ventures />
         <Contact />
       </main>
       <Footer />
