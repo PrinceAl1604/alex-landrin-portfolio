@@ -4,7 +4,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Container } from "./Section";
 import { staggerContainer, staggerItem } from "./Reveal";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-import { contact } from "@/lib/content/profile";
 
 /**
  * Full-bleed video hero. The Cover Home video autoplays (muted, looped) behind
@@ -71,57 +70,6 @@ export function Hero() {
           >
             {t.hero.lead}
           </motion.p>
-
-          {/* Availability — quiet status line */}
-          <motion.p variants={item} className="mt-6 flex items-center gap-2 font-sans text-sm text-white/90">
-            <span className="relative flex h-2 w-2" aria-hidden>
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/60 motion-reduce:hidden" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
-            </span>
-            {t.hero.availability}
-          </motion.p>
-
-          {/* CTAs — light variants for contrast on the video */}
-          <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-3">
-            <a
-              href="#work"
-              className="press group rounded-full bg-white px-5 py-3 font-sans text-sm text-black hover:bg-[#6FBEB0]"
-            >
-              {t.cta.viewWork}{" "}
-              <span className="inline-block transition-transform duration-300 ease-editorial group-hover:translate-x-1">
-                →
-              </span>
-            </a>
-            <a
-              href={contact.cv}
-              download
-              className="press group rounded-full border border-white/40 px-5 py-3 font-sans text-sm text-white backdrop-blur-sm hover:border-white hover:bg-white/10"
-            >
-              {t.cta.downloadCv}{" "}
-              <span className="inline-block transition-transform duration-300 ease-editorial group-hover:translate-y-0.5">
-                ↓
-              </span>
-            </a>
-          </motion.div>
-
-          {/* Direct contact — always visible in hero */}
-          <motion.div variants={item} className="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-sans text-sm text-white/70">
-            <a
-              href={`mailto:${contact.email}`}
-              className="underline-offset-4 transition-colors hover:text-white hover:underline"
-            >
-              {contact.email}
-            </a>
-            <a
-              href={contact.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="underline-offset-4 transition-colors hover:text-white hover:underline"
-            >
-              {contact.linkedinLabel} ↗
-            </a>
-            <span>{t.about.location}</span>
-          </motion.div>
         </motion.div>
       </Container>
     </section>
