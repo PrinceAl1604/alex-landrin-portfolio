@@ -88,7 +88,7 @@ export function Nav() {
           <LangToggle />
           <a
             href={contact.cv}
-            className="press rounded-sm border border-ink bg-ink px-4 py-2 font-sans text-sm text-paper hover:bg-transparent hover:text-ink"
+            className="press rounded-full border border-ink bg-ink px-4 py-2 font-sans text-sm text-paper hover:bg-transparent hover:text-ink"
             download
           >
             {t.cta.downloadCv} ↓
@@ -126,7 +126,7 @@ export function Nav() {
               <a
                 href={contact.cv}
                 download
-                className="inline-block rounded-sm border border-ink bg-ink px-4 py-2 text-paper"
+                className="inline-block rounded-full border border-ink bg-ink px-4 py-2 text-paper"
                 onClick={() => setOpen(false)}
               >
                 {t.cta.downloadCv} ↓

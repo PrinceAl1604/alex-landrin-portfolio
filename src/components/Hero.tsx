@@ -53,7 +53,7 @@ export function Hero() {
           <motion.div variants={item} className="mt-10 flex flex-wrap items-center gap-3">
             <a
               href="#work"
-              className="press group rounded-sm bg-ink px-5 py-3 font-sans text-sm text-paper hover:bg-accent"
+              className="press group rounded-full bg-ink px-5 py-3 font-sans text-sm text-paper hover:bg-accent"
             >
               {t.cta.viewWork}{" "}
               <span className="inline-block transition-transform duration-300 ease-editorial group-hover:translate-x-1">
@@ -63,7 +63,7 @@ export function Hero() {
             <a
               href={contact.cv}
               download
-              className="press group rounded-sm border border-ink px-5 py-3 font-sans text-sm text-ink hover:border-accent hover:text-accent"
+              className="press group rounded-full border border-ink px-5 py-3 font-sans text-sm text-ink hover:border-accent hover:text-accent"
             >
               {t.cta.downloadCv}{" "}
               <span className="inline-block transition-transform duration-300 ease-editorial group-hover:translate-y-0.5">

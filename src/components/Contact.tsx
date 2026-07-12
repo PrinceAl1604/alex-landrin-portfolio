@@ -59,7 +59,7 @@ export function Contact() {
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href={`mailto:${contact.email}`}
-                className="press group rounded-sm bg-ink px-5 py-3 font-sans text-sm text-paper hover:bg-accent"
+                className="press group rounded-full bg-ink px-5 py-3 font-sans text-sm text-paper hover:bg-accent"
               >
                 {t.cta.emailMe}{" "}
                 <span className="inline-block transition-transform duration-300 ease-editorial group-hover:translate-x-1">
@@ -70,14 +70,14 @@ export function Contact() {
                 href={contact.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="press rounded-sm border border-ink px-5 py-3 font-sans text-sm text-ink hover:border-accent hover:text-accent"
+                className="press rounded-full border border-ink px-5 py-3 font-sans text-sm text-ink hover:border-accent hover:text-accent"
               >
                 {contact.linkedinLabel} ↗
               </a>
               <a
                 href={contact.cv}
                 download
-                className="press rounded-sm border border-ink px-5 py-3 font-sans text-sm text-ink hover:border-accent hover:text-accent"
+                className="press rounded-full border border-ink px-5 py-3 font-sans text-sm text-ink hover:border-accent hover:text-accent"
               >
                 {t.cta.downloadCv} ↓
               </a>

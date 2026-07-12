@@ -110,66 +110,20 @@ export const projectTranslations: Record<string, Partial<Record<Lang, ProjectTr>
     },
   },
 
-  "brandkit-studio": {
+  kassirh: {
     fr: {
-      summary:
-        "Concept et prototype 0→1 d'un outil de brand system — transformer les règles de marque en logiciel utilisable.",
-      angle: "Pensée produit 0→1.",
-      role: "Designer produit & lead concept",
-      tags: ["0→1", "Concept", "Pensée produit"],
-      problem:
-        "Les chartes de marque meurent dans des PDF. BrandKit part d'une question : et si un brand system était un outil vivant dans lequel les équipes conçoivent, plutôt qu'un document qu'elles ignorent ? [[TODO: Alex to sharpen the thesis]]",
-      process: [
-        {
-          heading: "Là où les brand systems déraillent",
-          body: "En m'appuyant sur plus de 500 livraisons LogoMint, j'ai recensé où les marques livrées échouent réellement sur le terrain — application incohérente, pas de source de vérité unique, aucune mise en application.",
-        },
-        {
-          heading: "Les tokens comme produit, pas comme sous-produit",
-          body: "J'ai bâti tout le concept autour de design tokens vivants : couleur, typo et espacements comme données que l'équipe compose — impossible pour la charte et le résultat de diverger.",
-        },
-        {
-          heading: "Du logo à l'interface, au même endroit",
-          body: "J'ai prototypé la boucle centrale — définir un logo et des tokens, puis composer des supports fidèles à la marque — en flux interactif, pour tester si des non-designers restaient dans les clous sans aide.",
-        },
-        {
-          heading: "Un prototype qui plaide sa cause",
-          body: "J'ai construit un prototype cliquable pour éprouver le concept auprès de vrais utilisateurs, avant tout engagement d'ingénierie. [[TODO: Alex — outcome of testing]]",
-        },
-      ],
-      outcomes: [{ label: "Sessions de test du prototype" }, { label: "Du concept au prototype cliquable" }],
-      reflection:
-        "Je suis tombé amoureux de l'outil avant d'avoir tout à fait prouvé que la douleur était assez vive pour changer les habitudes. Si je recommençais, je validerais la disposition à payer avant de peaufiner l'interface. [[TODO: Alex to confirm]]",
+      summary: "Une plateforme RH.",
+      angle: "[[TODO: Alex — l'angle en une ligne pour kassiRH]]",
+      role: "[[TODO: Alex — votre rôle sur kassiRH]]",
+      timeframe: "Nov. 2025 — févr. 2026",
+      tags: ["SaaS", "RH"],
     },
     de: {
-      summary:
-        "0→1-Produktkonzept und Prototyp für ein Brand-System-Tool — Markenregeln in nutzbare Software verwandeln.",
-      angle: "0→1-Produktdenken.",
-      role: "Product Designer & Concept Lead",
-      tags: ["0→1", "Konzept", "Produktdenken"],
-      problem:
-        "Markenrichtlinien sterben in PDFs. BrandKit begann mit einer Frage: Was, wenn ein Brand System ein lebendiges Tool wäre, in dem Teams gestalten — statt eines Dokuments, das sie ignorieren? [[TODO: Alex to sharpen the thesis]]",
-      process: [
-        {
-          heading: "Wo Brand Systems scheitern",
-          body: "Auf Basis von über 500 LogoMint-Auslieferungen habe ich erfasst, wo übergebene Marken in der Praxis wirklich scheitern — inkonsistente Anwendung, keine einzige Quelle der Wahrheit, keine Durchsetzung.",
-        },
-        {
-          heading: "Tokens als Produkt, nicht als Nebenprodukt",
-          body: "Ich habe das ganze Konzept um lebendige Design-Tokens gebaut: Farbe, Typo und Abstände als Daten, mit denen ein Team komponiert — so können Richtlinie und Ergebnis nie auseinanderlaufen.",
-        },
-        {
-          heading: "Vom Logo zur Oberfläche, an einem Ort",
-          body: "Ich habe die Kernschleife prototypisiert — Logo und Tokens definieren, dann markenkonforme Artefakte komponieren — als interaktiven Flow, um zu testen, ob Nicht-Designer ohne Hilfe on-brand bleiben.",
-        },
-        {
-          heading: "Ein Prototyp, der für sich selbst argumentiert",
-          body: "Ich habe einen klickbaren Prototyp gebaut, um das Konzept mit echten Nutzern zu prüfen — vor jedem Engineering-Commitment. [[TODO: Alex — outcome of testing]]",
-        },
-      ],
-      outcomes: [{ label: "Prototyp-Testsitzungen" }, { label: "Vom Konzept zum klickbaren Prototyp" }],
-      reflection:
-        "Ich habe mich in das Tool verliebt, bevor ich ganz bewiesen hatte, dass der Schmerz groß genug ist, um Verhalten zu ändern. Noch einmal würde ich die Zahlungsbereitschaft prüfen, bevor ich die Oberfläche poliere. [[TODO: Alex to confirm]]",
+      summary: "Eine HR-Plattform.",
+      angle: "[[TODO: Alex — der Ein-Zeilen-Angle für kassiRH]]",
+      role: "[[TODO: Alex — deine Rolle bei kassiRH]]",
+      timeframe: "Nov. 2025 — Feb. 2026",
+      tags: ["SaaS", "HR"],
     },
   },
 

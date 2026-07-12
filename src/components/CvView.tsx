@@ -27,7 +27,7 @@ export function CvView() {
             <a
               href={contact.cv}
               download
-              className="rounded-sm bg-ink px-5 py-3 font-sans text-sm text-paper transition-colors hover:bg-accent"
+              className="rounded-full bg-ink px-5 py-3 font-sans text-sm text-paper transition-colors hover:bg-accent"
             >
               {t.cta.downloadCv} (PDF) ↓
             </a>

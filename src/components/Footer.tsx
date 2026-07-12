@@ -90,7 +90,7 @@ export function Footer() {
                     type="button"
                     onClick={() => setLocale(l)}
                     aria-pressed={locale === l}
-                    className={`press rounded-sm px-2 py-1 ${
+                    className={`press rounded-full px-2 py-1 ${
                       locale === l ? "bg-ink text-paper" : "text-muted hover:text-ink"
                     }`}
                   >
