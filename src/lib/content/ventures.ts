@@ -12,13 +12,6 @@ export type Venture = {
 
 export const ventures: Venture[] = [
   {
-    name: "LogoMint",
-    kind: "Brand identity studio",
-    line: "500+ brand identities delivered — the studio behind the identity work.",
-    href: "https://logomint.co", // [[TODO: Alex to confirm LogoMint URL]]
-    external: true,
-  },
-  {
     name: "ACADEMIA",
     kind: "Education network",
     line: "A learning network for French-speaking creatives — 10,000+ community, 1,000+ students.",

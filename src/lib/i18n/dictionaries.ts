@@ -81,7 +81,6 @@ const en = {
     inDevelopment: "In development",
     // Same order as content/ventures.ts
     items: [
-      { kind: "Brand identity studio", line: "500+ brand identities delivered — the studio behind the identity work." },
       { kind: "Education network", line: "A learning network for French-speaking creatives — 10,000+ community, 1,000+ students." },
       { kind: "Software & product", line: "The product studio where I build and ship SaaS end to end." },
       { kind: "Content SaaS + agency", line: "Francophone, expert-led content platform — in development." },
@@ -218,7 +217,6 @@ const de: DeepPartial<Dictionary> = {
     lead: "Neben der Designarbeit baue und betreibe ich ein kleines Ökosystem. Die Nebenrolle, nicht der Star.",
     inDevelopment: "In Entwicklung",
     items: [
-      { kind: "Studio für Markenidentität", line: "Über 500 Markenidentitäten ausgeliefert — das Studio hinter der Markenarbeit." },
       { kind: "Bildungsnetzwerk", line: "Ein Lernnetzwerk für frankofone Kreative — über 10.000 Community, über 1.000 Studierende." },
       { kind: "Software & Produkt", line: "Das Produktstudio, in dem ich SaaS von A bis Z baue und ausliefere." },
       { kind: "Content-SaaS + Agentur", line: "Frankofone, expertengeführte Content-Plattform — in Entwicklung." },
@@ -351,7 +349,6 @@ const fr: DeepPartial<Dictionary> = {
     lead: "Au-delà du design, je construis et fais tourner un petit écosystème. Un second rôle, pas la vedette.",
     inDevelopment: "En développement",
     items: [
-      { kind: "Studio d'identité de marque", line: "Plus de 500 identités livrées — le studio derrière tout le travail de marque." },
       { kind: "Réseau de formation", line: "Un réseau d'apprentissage pour les créatifs francophones — plus de 10 000 membres, plus de 1 000 étudiants." },
       { kind: "Logiciel & produit", line: "Le studio produit où je conçois et livre du SaaS de bout en bout." },
       { kind: "SaaS de contenu + agence", line: "Plateforme de contenu francophone portée par des experts — en développement." },
