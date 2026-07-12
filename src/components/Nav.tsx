@@ -2,19 +2,22 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { locales, localeNames } from "@/lib/i18n/dictionaries";
 import { contact, site } from "@/lib/content/profile";
 
 /** Compact segmented EN/DE/FR toggle — switches the whole site's language. */
-function LangToggle({ className = "" }: { className?: string }) {
+function LangToggle({ onDark = false, className = "" }: { onDark?: boolean; className?: string }) {
   const { t, locale, setLocale } = useLocale();
   return (
     <div
       role="group"
       aria-label={t.footer.language}
-      className={`flex items-center gap-0.5 rounded-full border border-hairline p-0.5 font-sans text-xs ${className}`}
+      className={`flex items-center gap-0.5 rounded-full border p-0.5 font-sans text-xs ${
+        onDark ? "border-white/30" : "border-hairline"
+      } ${className}`}
     >
       {locales.map((l) => (
         <button
@@ -23,7 +26,13 @@ function LangToggle({ className = "" }: { className?: string }) {
           onClick={() => setLocale(l)}
           aria-pressed={locale === l}
           className={`press rounded-full px-2.5 py-1 ${
-            locale === l ? "bg-ink text-paper" : "text-muted hover:text-ink"
+            locale === l
+              ? onDark
+                ? "bg-white text-black"
+                : "bg-ink text-paper"
+              : onDark
+                ? "text-white/60 hover:text-white"
+                : "text-muted hover:text-ink"
           }`}
         >
           {localeNames[l]}
@@ -35,6 +44,7 @@ function LangToggle({ className = "" }: { className?: string }) {
 
 export function Nav() {
   const { t } = useLocale();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -44,6 +54,10 @@ export function Nav() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Only the home page has the dark video hero; while pinned at the top there,
+  // the nav floats over it as dark glass with light content.
+  const overHero = pathname === "/" && !scrolled && !open;
 
   const links = [
     { href: "/#work", label: t.nav.work },
@@ -55,7 +69,7 @@ export function Nav() {
   return (
     <header
       className={`sticky top-0 z-50 border-b transition-colors ${
-        scrolled ? "glass border-hairline" : "border-transparent bg-paper"
+        overHero ? "glass-dark border-transparent" : `glass ${scrolled ? "border-hairline" : "border-transparent"}`
       }`}
     >
       <nav className="mx-auto flex max-w-shell items-center justify-between px-gutter py-4" aria-label="Primary">
@@ -70,7 +84,9 @@ export function Nav() {
             width={40}
             height={40}
             priority
-            className="h-10 w-10 rounded-full ring-1 ring-hairline transition-transform duration-300 ease-editorial group-hover:scale-105"
+            className={`h-10 w-10 rounded-full ring-1 transition-transform duration-300 ease-editorial group-hover:scale-105 ${
+              overHero ? "ring-white/30" : "ring-hairline"
+            }`}
           />
         </Link>
 
@@ -79,17 +95,26 @@ export function Nav() {
           <ul className="flex items-center gap-7 font-sans text-sm">
             {links.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="link-underline text-muted transition-colors hover:text-ink">
+                <Link
+                  href={l.href}
+                  className={`link-underline transition-colors ${
+                    overHero ? "text-white/75 hover:text-white" : "text-muted hover:text-ink"
+                  }`}
+                >
                   {l.label}
                 </Link>
               </li>
             ))}
           </ul>
-          <LangToggle />
+          <LangToggle onDark={overHero} />
           <a
             href={contact.cv}
-            className="press rounded-full border border-ink bg-ink px-4 py-2 font-sans text-sm text-paper hover:bg-transparent hover:text-ink"
             download
+            className={`press rounded-full border px-4 py-2 font-sans text-sm ${
+              overHero
+                ? "border-white/40 text-white hover:bg-white/10"
+                : "border-ink bg-ink text-paper hover:bg-transparent hover:text-ink"
+            }`}
           >
             {t.cta.downloadCv} ↓
           </a>
@@ -98,7 +123,7 @@ export function Nav() {
         {/* Mobile toggle */}
         <button
           type="button"
-          className="md:hidden font-sans text-sm text-ink"
+          className={`font-sans text-sm md:hidden ${overHero ? "text-white" : "text-ink"}`}
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
@@ -113,11 +138,7 @@ export function Nav() {
           <ul className="mx-auto flex max-w-shell flex-col gap-1 px-gutter py-4 font-sans text-base">
             {links.map((l) => (
               <li key={l.href}>
-                <Link
-                  href={l.href}
-                  className="block py-2 text-ink"
-                  onClick={() => setOpen(false)}
-                >
+                <Link href={l.href} className="block py-2 text-ink" onClick={() => setOpen(false)}>
                   {l.label}
                 </Link>
               </li>
