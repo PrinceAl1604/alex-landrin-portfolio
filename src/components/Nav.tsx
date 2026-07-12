@@ -69,7 +69,9 @@ export function Nav() {
   return (
     <header
       className={`sticky top-0 z-50 border-b transition-colors ${
-        overHero ? "glass-dark border-transparent" : `glass ${scrolled ? "border-hairline" : "border-transparent"}`
+        overHero
+          ? "border-transparent bg-gradient-to-b from-black/45 to-transparent"
+          : `glass ${scrolled ? "border-hairline" : "border-transparent"}`
       }`}
     >
       <nav className="mx-auto flex max-w-shell items-center justify-between px-gutter py-4" aria-label="Primary">
