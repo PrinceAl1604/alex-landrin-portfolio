@@ -38,7 +38,7 @@ const en = {
   },
   work: {
     label: "Selected work",
-    title: "Four projects, shown in depth.",
+    title: "Three projects, shown in depth.",
     lead: "Recruiters hire on case studies, not thumbnails. Each of these traces the real path — research, decisions, design, ship.",
   },
   capabilities: {
@@ -177,7 +177,7 @@ const de: DeepPartial<Dictionary> = {
   },
   work: {
     label: "Ausgewählte Arbeiten",
-    title: "Vier Projekte, in der Tiefe.",
+    title: "Drei Projekte, in der Tiefe.",
     lead: "Recruiter stellen aufgrund von Case Studies ein, nicht wegen Thumbnails. Jede zeigt den echten Weg — Recherche, Entscheidungen, Design, Launch.",
   },
   capabilities: {
@@ -310,7 +310,7 @@ const fr: DeepPartial<Dictionary> = {
   },
   work: {
     label: "Projets sélectionnés",
-    title: "Quatre projets, en profondeur.",
+    title: "Trois projets, en profondeur.",
     lead: "On recrute sur des études de cas, pas sur des vignettes. Chacune retrace le vrai parcours — recherche, décisions, design, mise en ligne.",
   },
   capabilities: {

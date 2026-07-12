@@ -208,64 +208,6 @@ export const projects: Project[] = [
     reflection:
       "[[TODO: Alex — an honest reflection on kassiRH: what you'd do differently]]",
   },
-  {
-    slug: "logomint-identities",
-    index: "04",
-    title: "LogoMint Identities",
-    summary: "A curated selection of brand identity work from 500+ LogoMint deliveries — range and craft in one gallery.",
-    angle: "Range + craft.",
-    role: "Founder & Lead Brand Designer — LogoMint",
-    timeframe: "2019 — present",
-    tools: ["Illustrator", "Figma", "Brand Systems"],
-    tags: ["Brand Identity", "Gallery"],
-    gallery: true,
-    cover: {
-      src: "[[logomint-cover.png]]",
-      caption: "LogoMint — selected identities",
-      ratio: "16/10",
-    },
-    problem:
-      "Eight strong identities beat eighty thin thumbnails. The goal here is to show range and craft as one confident gallery — not to over-explain work that should speak for itself.",
-    process: [
-      {
-        phase: "Research",
-        heading: "Positioning before pixels",
-        body: "Every identity starts from the client's market position — who they're for and who they're against — before a single mark is drawn.",
-      },
-      {
-        phase: "Decisions",
-        heading: "A system, not just a logo",
-        body: "Each deliverable ships as a small system: mark, type, colour and usage rules, so the brand survives contact with the real world.",
-      },
-      {
-        phase: "Design",
-        heading: "Craft in the details",
-        body: "Optical spacing, drawn-not-defaulted letterforms, and marks that hold up from favicon to billboard.",
-      },
-      {
-        phase: "Ship",
-        heading: "500+ delivered",
-        body: "A studio-scale operation with a repeatable process — the discipline behind the range shown here.",
-      },
-    ],
-    artifacts: [],
-    galleryItems: [
-      { src: "[[logomint-auraflo.png]]", caption: "AURAFLO", ratio: "4/3" },
-      { src: "[[logomint-phinny-ai.png]]", caption: "phinny.ai", ratio: "4/3" },
-      { src: "[[logomint-kb-industrie.png]]", caption: "KB Industrie", ratio: "4/3" },
-      { src: "[[logomint-ounago-citygo.png]]", caption: "OUNAGO / CityGo Drive", ratio: "4/3" },
-      { src: "[[logomint-welconcept.png]]", caption: "WelConcept", ratio: "4/3" },
-      { src: "[[logomint-sakara.png]]", caption: "SAKARA", ratio: "4/3" },
-      { src: "[[logomint-bazaar.png]]", caption: "Bazaar", ratio: "4/3" },
-      { src: "[[logomint-ryma-ads.png]]", caption: "Ryma Ads", ratio: "4/3" },
-    ],
-    outcomes: [
-      { value: "500+", label: "Clients delivered" },
-      { value: "[[metric]]", label: "Countries served" },
-    ],
-    reflection:
-      "Volume taught me speed but early on I let some brands ship without a usage system — a beautiful mark misapplied is a wasted mark. Now every identity leaves with rules attached. [[TODO: Alex to confirm]]",
-  },
 ];
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
