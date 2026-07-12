@@ -23,7 +23,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative -mt-[72px] flex min-h-[56vh] w-full overflow-hidden bg-[#0d0d0c] sm:min-h-[68vh]"
+      className="relative -mt-[72px] flex min-h-[100svh] w-full overflow-hidden bg-[#0d0d0c]"
       aria-labelledby="hero-heading"
     >
       {/* Video background */}
@@ -41,21 +41,22 @@ export function Hero() {
         <source src="/hero.mp4" type="video/mp4" />
       </video>
 
-      {/* Scrim — darker at the bottom where the text sits */}
+      {/* Scrim — only at the bottom where the text sits; the top stays clear
+         so the video is fully visible. */}
       <div
-        className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20"
+        className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"
         aria-hidden
       />
 
       {/* Content */}
-      <Container className="relative z-10 flex flex-col justify-end pb-10 pt-24 sm:pb-14">
+      <Container className="relative z-10 flex flex-col justify-end pb-16 pt-28 sm:pb-20">
         <motion.div variants={container} initial={initial} animate={animate}>
           <motion.p variants={item} className="side-label flex items-center gap-3 !text-white/70">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#6FBEB0]" aria-hidden />
             {t.hero.eyebrow}
           </motion.p>
 
-          <h1 id="hero-heading" className="mt-5 font-display font-bold leading-[0.92] text-white text-[clamp(2.25rem,6.5vw,6rem)]">
+          <h1 id="hero-heading" className="mt-6 font-display font-bold text-hero leading-[0.9] text-white">
             <motion.span variants={item} className="block">
               {t.hero.headlineA}
             </motion.span>
@@ -66,13 +67,13 @@ export function Hero() {
 
           <motion.p
             variants={item}
-            className="mt-5 max-w-measure text-lg leading-relaxed text-white/80 sm:text-xl sm:leading-relaxed"
+            className="mt-7 max-w-measure text-lg leading-relaxed text-white/80 sm:text-xl sm:leading-relaxed"
           >
             {t.hero.lead}
           </motion.p>
 
           {/* Availability — quiet status line */}
-          <motion.p variants={item} className="mt-5 flex items-center gap-2 font-sans text-sm text-white/90">
+          <motion.p variants={item} className="mt-6 flex items-center gap-2 font-sans text-sm text-white/90">
             <span className="relative flex h-2 w-2" aria-hidden>
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#6FBEB0]/60 motion-reduce:hidden" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[#6FBEB0]" />
@@ -81,7 +82,7 @@ export function Hero() {
           </motion.p>
 
           {/* CTAs — light variants for contrast on the video */}
-          <motion.div variants={item} className="mt-7 flex flex-wrap items-center gap-3">
+          <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-3">
             <a
               href="#work"
               className="press group rounded-full bg-white px-5 py-3 font-sans text-sm text-black hover:bg-[#6FBEB0]"
@@ -104,7 +105,7 @@ export function Hero() {
           </motion.div>
 
           {/* Direct contact — always visible in hero */}
-          <motion.div variants={item} className="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-sans text-sm text-white/70">
+          <motion.div variants={item} className="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-sans text-sm text-white/70">
             <a
               href={`mailto:${contact.email}`}
               className="underline-offset-4 transition-colors hover:text-white hover:underline"
