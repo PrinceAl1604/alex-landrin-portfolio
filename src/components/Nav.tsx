@@ -70,11 +70,16 @@ export function Nav() {
     <header
       className={`sticky top-0 z-50 border-b transition-colors ${
         overHero
-          ? "border-transparent bg-gradient-to-b from-black/45 to-transparent"
+          ? "border-transparent"
           : `glass ${scrolled ? "border-hairline" : "border-transparent"}`
       }`}
     >
-      <nav className="mx-auto flex max-w-shell items-center justify-between px-gutter py-4" aria-label="Primary">
+      <nav
+        className={`mx-auto flex max-w-shell items-center justify-between px-gutter py-4 ${
+          overHero ? "[filter:drop-shadow(0_1px_3px_rgb(0_0_0_/_0.6))]" : ""
+        }`}
+        aria-label="Primary"
+      >
         <Link
           href="/"
           aria-label={`${site.name} — home`}

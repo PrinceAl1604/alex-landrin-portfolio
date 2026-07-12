@@ -23,7 +23,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative flex min-h-[78vh] w-full overflow-hidden bg-[#0d0d0c] sm:min-h-[88vh]"
+      className="relative -mt-[72px] flex min-h-[78vh] w-full overflow-hidden bg-[#0d0d0c] sm:min-h-[88vh]"
       aria-labelledby="hero-heading"
     >
       {/* Video background */}
