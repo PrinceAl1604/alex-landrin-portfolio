@@ -7,8 +7,9 @@ import type { Project } from "@/lib/content/projects";
 import { localizeProject } from "@/lib/content/projects.i18n";
 
 /**
- * Editorial index card — behaves like a card in a well-set catalogue.
- * Whole card is one link; hover lifts the title to accent and shifts the arrow.
+ * Editorial index card — behaves like an entry in a well-set catalogue.
+ * The whole card is one link: on hover the folio index + title lift to accent,
+ * the cover eases up under a soft shadow, and the arrow shifts.
  */
 export function WorkCard({ project, reversed = false }: { project: Project; reversed?: boolean }) {
   const { t, locale } = useLocale();
@@ -17,18 +18,21 @@ export function WorkCard({ project, reversed = false }: { project: Project; reve
   return (
     <Link
       href={`/work/${p.slug}`}
-      className="group block border-t border-hairline py-8 outline-offset-4 first:border-t-0 sm:py-10"
+      className="group block border-t border-hairline py-10 outline-offset-4 first:border-t-0 sm:py-14"
       aria-label={`${t.cta.viewCaseStudy}: ${p.title}`}
     >
-      <div className="grid gap-6 md:grid-cols-12 md:gap-12 lg:gap-16">
+      <div className="grid gap-6 md:grid-cols-12 md:items-center md:gap-12 lg:gap-16">
         {/* Text column — moves to the right on reversed (even) rows */}
         <div className={`md:col-span-6 lg:col-span-5 ${reversed ? "md:order-2" : ""}`}>
+          {/* Folio index + tags */}
           <div className="flex items-baseline gap-4">
-            <span className="side-label tnum">{p.index}</span>
+            <span className="font-display text-2xl font-semibold leading-none tnum text-muted/60 transition-colors group-hover:text-accent">
+              {p.index}
+            </span>
             <span className="side-label">{p.tags.join(" · ")}</span>
           </div>
 
-          <h3 className="mt-4 font-display text-display-sm font-semibold tracking-tight transition-colors group-hover:text-accent">
+          <h3 className="mt-5 font-display text-display-sm font-semibold tracking-tight transition-colors group-hover:text-accent">
             {p.title}
           </h3>
 
@@ -36,26 +40,31 @@ export function WorkCard({ project, reversed = false }: { project: Project; reve
             {p.summary}
           </p>
 
-          <dl className="mt-6 space-y-1.5 font-sans text-xs text-muted">
-            <div className="flex gap-3">
-              <dt className="w-20 shrink-0 uppercase tracking-[0.1em]">{t.caseStudy.role}</dt>
-              <dd className="text-ink/80">{p.role}</dd>
-            </div>
-            <div className="flex gap-3">
-              <dt className="w-20 shrink-0 uppercase tracking-[0.1em]">{t.caseStudy.timeframe}</dt>
-              <dd className="text-ink/80">{p.timeframe}</dd>
-            </div>
+          {/* Meta — role + timeframe, set off by a hairline */}
+          <dl className="mt-6 grid grid-cols-[5rem_1fr] gap-x-4 gap-y-2 border-t border-hairline pt-5 text-sm">
+            <dt className="side-label pt-px">{t.caseStudy.role}</dt>
+            <dd className="text-ink/85">{p.role}</dd>
+            <dt className="side-label pt-px">{t.caseStudy.timeframe}</dt>
+            <dd className="tnum text-ink/85">{p.timeframe}</dd>
           </dl>
 
-          <span className="mt-6 inline-flex items-center gap-2 font-sans text-sm text-ink transition-colors group-hover:text-accent">
-            {t.cta.viewCaseStudy}
-            <span className="transition-transform group-hover:translate-x-1">→</span>
+          {/* CTA */}
+          <span className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-ink transition-colors group-hover:text-accent">
+            <span className="border-b border-transparent pb-px transition-colors group-hover:border-accent/40">
+              {t.cta.viewCaseStudy}
+            </span>
+            <span
+              aria-hidden
+              className="transition-transform duration-200 ease-editorial group-hover:translate-x-1"
+            >
+              →
+            </span>
           </span>
         </div>
 
         {/* Visual column — moves to the left on reversed (even) rows */}
         <div className={`md:col-span-6 lg:col-span-7 ${reversed ? "md:order-1" : ""}`}>
-          <div className="overflow-hidden rounded-sm">
+          <div className="overflow-hidden rounded-md bg-paper shadow-[0_1px_2px_rgb(0_0_0/0.04)] ring-1 ring-hairline transition-shadow duration-500 ease-editorial group-hover:shadow-[0_18px_48px_-16px_rgb(0_0_0/0.22)]">
             <div className="transition-transform duration-500 ease-editorial group-hover:scale-[1.015] motion-reduce:transform-none">
               <Placeholder
                 src={p.cover.src}

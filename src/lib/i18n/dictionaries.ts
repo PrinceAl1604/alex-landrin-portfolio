@@ -35,6 +35,7 @@ const en = {
     lead: "I design product and brand for SaaS — from the brand mark to the shipped interface. A mathematics background gives me a logic-first, systematic approach; a builder's habit means I take work all the way to launch.",
     availability: "Open to senior Product Design roles across Germany & Europe",
     availabilityShort: "Open to senior roles",
+    tags: ["Product & Brand", "Systems-led, shipped", "12-Column grid"],
   },
   work: {
     label: "Selected work",
@@ -161,6 +162,7 @@ const de: DeepPartial<Dictionary> = {
     lead: "Ich gestalte Produkt und Marke für SaaS — vom Markenzeichen bis zur ausgelieferten Oberfläche. Mein Mathematik-Hintergrund gibt mir einen logischen, systematischen Ansatz; als Macher bringe ich jedes Projekt bis zum Launch.",
     availability: "Offen für Senior-Positionen im Produktdesign — in Deutschland und Europa",
     availabilityShort: "Offen für Senior-Rollen",
+    tags: ["Produkt & Marke", "Systemisch, ausgeliefert", "12-Spalten-Raster"],
   },
   work: {
     label: "Ausgewählte Arbeiten",
@@ -282,6 +284,7 @@ const fr: DeepPartial<Dictionary> = {
     lead: "Je conçois le produit et la marque de logiciels SaaS — du logo à l'interface mise en ligne. Ma formation en mathématiques m'apporte une approche logique et systématique ; mon réflexe de bâtisseur me pousse à mener chaque projet jusqu'au lancement.",
     availability: "Ouvert aux postes senior en design produit, en Allemagne et en Europe",
     availabilityShort: "Ouvert aux postes senior",
+    tags: ["Produit & marque", "Systémique, livré", "Grille 12 colonnes"],
   },
   work: {
     label: "Projets sélectionnés",
