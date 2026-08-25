@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { Container } from "./Section";
 import { Reveal } from "./Reveal";
@@ -8,6 +9,18 @@ import { useLocale } from "@/lib/i18n/LocaleProvider";
 import type { Project } from "@/lib/content/projects";
 import { getAdjacentProjects } from "@/lib/content/projects";
 import { localizeProject } from "@/lib/content/projects.i18n";
+
+/** Section label with the pine "+" systems motif, on a top hairline. */
+function SectionLabel({ children, className = "" }: { children: ReactNode; className?: string }) {
+  return (
+    <h2 className={`side-label border-t border-hairline pt-4 ${className}`}>
+      <span className="text-accent" aria-hidden>
+        +{" "}
+      </span>
+      {children}
+    </h2>
+  );
+}
 
 export function CaseStudy({ project }: { project: Project }) {
   const { t, locale } = useLocale();
@@ -27,7 +40,9 @@ export function CaseStudy({ project }: { project: Project }) {
         <header className="mt-10 border-t border-hairline pt-8">
           <Reveal>
             <div className="flex items-baseline gap-4">
-              <span className="side-label tnum">§{p.index}</span>
+              <span className="font-display text-2xl font-semibold leading-none tnum text-muted/70">
+                §{p.index}
+              </span>
               <span className="side-label">{p.tags.join(" · ")}</span>
             </div>
           </Reveal>
@@ -48,7 +63,7 @@ export function CaseStudy({ project }: { project: Project }) {
               </div>
               <div>
                 <dt className="side-label">{t.caseStudy.timeframe}</dt>
-                <dd className="mt-2 text-ink/90">{p.timeframe}</dd>
+                <dd className="mt-2 tnum text-ink/90">{p.timeframe}</dd>
               </div>
               <div>
                 <dt className="side-label">{t.caseStudy.tools}</dt>
@@ -65,7 +80,7 @@ export function CaseStudy({ project }: { project: Project }) {
               src={p.cover.src}
               ratio={p.cover.ratio}
               caption={p.cover.caption}
-              fade
+              framed
               quality={95}
               sizes="(min-width: 1024px) 1150px, 100vw"
             />
@@ -73,29 +88,33 @@ export function CaseStudy({ project }: { project: Project }) {
         </Reveal>
 
         {/* Problem */}
-        <Reveal>
-          <section className="mt-20 grid gap-6 md:grid-cols-12">
-            <h2 className="side-label md:col-span-3">{t.caseStudy.problem}</h2>
-            <p className="max-w-measure text-lg leading-relaxed text-ink/90 md:col-span-9">
-              {p.problem}
-            </p>
-          </section>
-        </Reveal>
+        <section className="mt-20">
+          <Reveal>
+            <SectionLabel>{t.caseStudy.problem}</SectionLabel>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <div className="mt-8 md:grid md:grid-cols-12">
+              <p className="max-w-measure text-lg leading-relaxed text-ink/90 md:col-span-9 md:col-start-4">
+                {p.problem}
+              </p>
+            </div>
+          </Reveal>
+        </section>
 
         {/* Process — numbers earned here (sequential) */}
         <section className="mt-20">
           <Reveal>
-            <h2 className="side-label border-t border-hairline pt-4">{t.caseStudy.process}</h2>
+            <SectionLabel>{t.caseStudy.process}</SectionLabel>
           </Reveal>
           <ol className="mt-8 space-y-px overflow-hidden rounded-sm border border-hairline bg-hairline">
             {p.process.map((step, i) => (
               <Reveal as="li" key={step.phase} delay={i * 0.04}>
                 <div className="grid gap-4 bg-paper p-6 sm:grid-cols-12 sm:gap-8 sm:p-8">
                   <div className="sm:col-span-3">
-                    <span className="side-label tnum">{String(i + 1).padStart(2, "0")}</span>
-                    <p className="mt-2 font-sans text-xs uppercase tracking-[0.1em] text-accent">
-                      {step.phase}
-                    </p>
+                    <span className="font-display text-xl font-semibold leading-none tnum text-muted/60">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <p className="mt-3 side-label !text-accent">{step.phase}</p>
                   </div>
                   <div className="sm:col-span-9">
                     <h3 className="font-display text-xl font-semibold tracking-tight">{step.heading}</h3>
@@ -110,15 +129,13 @@ export function CaseStudy({ project }: { project: Project }) {
         {/* Artifacts / gallery */}
         <section className="mt-20">
           <Reveal>
-            <h2 className="side-label border-t border-hairline pt-4">
-              {p.gallery ? t.caseStudy.gallery : t.caseStudy.artifacts}
-            </h2>
+            <SectionLabel>{p.gallery ? t.caseStudy.gallery : t.caseStudy.artifacts}</SectionLabel>
           </Reveal>
           {p.gallery && p.galleryItems ? (
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {p.galleryItems.map((item, i) => (
                 <Reveal key={item.src} delay={i * 0.03}>
-                  <Placeholder src={item.src} ratio={item.ratio} caption={item.caption} />
+                  <Placeholder src={item.src} ratio={item.ratio} caption={item.caption} framed />
                 </Reveal>
               ))}
             </div>
@@ -126,7 +143,7 @@ export function CaseStudy({ project }: { project: Project }) {
             <div className="mt-8 grid gap-8 md:grid-cols-2">
               {p.artifacts.map((item, i) => (
                 <Reveal key={item.src} delay={i * 0.04} className={i === 0 ? "md:col-span-2" : ""}>
-                  <Placeholder src={item.src} ratio={item.ratio} caption={item.caption} />
+                  <Placeholder src={item.src} ratio={item.ratio} caption={item.caption} framed />
                 </Reveal>
               ))}
             </div>
@@ -136,29 +153,35 @@ export function CaseStudy({ project }: { project: Project }) {
         {/* Outcome */}
         <section className="mt-20">
           <Reveal>
-            <h2 className="side-label border-t border-hairline pt-4">{t.caseStudy.outcome}</h2>
+            <SectionLabel>{t.caseStudy.outcome}</SectionLabel>
           </Reveal>
           <dl className="mt-8 grid gap-8 sm:grid-cols-3">
             {p.outcomes.map((o, i) => (
               <Reveal key={o.label} delay={i * 0.05}>
-                <dt className="font-display text-display-sm font-bold tracking-tight text-accent tnum">
-                  {o.value}
-                </dt>
-                <dd className="mt-2 max-w-[24ch] text-sm leading-relaxed text-muted">{o.label}</dd>
+                <div className="border-t border-hairline pt-5">
+                  <dt className="font-display text-display-sm font-bold tracking-tight text-accent tnum">
+                    {o.value}
+                  </dt>
+                  <dd className="mt-2 max-w-[24ch] text-sm leading-relaxed text-muted">{o.label}</dd>
+                </div>
               </Reveal>
             ))}
           </dl>
         </section>
 
-        {/* Reflection */}
-        <Reveal>
-          <section className="mt-20 grid gap-6 md:grid-cols-12">
-            <h2 className="side-label md:col-span-3">{t.caseStudy.reflection}</h2>
-            <p className="max-w-measure text-lg leading-relaxed text-ink/90 md:col-span-9">
-              {p.reflection}
-            </p>
-          </section>
-        </Reveal>
+        {/* Reflection — the payoff, given a touch more weight */}
+        <section className="mt-20">
+          <Reveal>
+            <SectionLabel>{t.caseStudy.reflection}</SectionLabel>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <div className="mt-8 md:grid md:grid-cols-12">
+              <p className="max-w-measure text-xl leading-relaxed text-ink md:col-span-9 md:col-start-4">
+                {p.reflection}
+              </p>
+            </div>
+          </Reveal>
+        </section>
 
         {/* Prev / next */}
         <nav className="mt-24 grid gap-px overflow-hidden rounded-sm border border-hairline bg-hairline sm:grid-cols-2" aria-label="Case studies">

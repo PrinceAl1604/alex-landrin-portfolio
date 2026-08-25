@@ -17,6 +17,7 @@ export function Placeholder({
   className = "",
   sizes = "(max-width: 768px) 100vw, 60vw",
   fade = false,
+  framed = false,
   quality = 90,
 }: {
   src: string;
@@ -27,14 +28,18 @@ export function Placeholder({
   sizes?: string;
   /** Fade the bottom edge out (opacity gradient) so the image melts into the page. */
   fade?: boolean;
+  /** Frame the image as a deliberate object — rounded, a hairline ring and a soft
+   *  shadow — so screenshot-style shots sit on the paper (overrides `fade`). */
+  framed?: boolean;
   /** next/image encode quality (higher = crisper, esp. for UI screenshots). */
   quality?: number;
 }) {
   const { t } = useLocale();
   const isPlaceholder = src.startsWith("[[");
+  const useFade = fade && !framed;
 
   // Bottom opacity gradient via CSS mask (with -webkit- for Safari).
-  const fadeMask = fade
+  const fadeMask = useFade
     ? {
         maskImage: "linear-gradient(to bottom, #000 48%, transparent 100%)",
         WebkitMaskImage: "linear-gradient(to bottom, #000 48%, transparent 100%)",
@@ -56,9 +61,15 @@ export function Placeholder({
           </div>
         </div>
       ) : (
-        /* Bare image — no border, no background; optional bottom fade. */
+        /* Real image — framed (ring + soft shadow) or bare with an optional bottom fade. */
         <div
-          className={`relative overflow-hidden ${fade ? "rounded-t-lg" : "rounded-lg"}`}
+          className={`relative overflow-hidden ${
+            framed
+              ? "rounded-lg bg-paper shadow-[0_1px_2px_rgb(0_0_0/0.04)] ring-1 ring-hairline"
+              : useFade
+                ? "rounded-t-lg"
+                : "rounded-lg"
+          }`}
           style={{ aspectRatio: ratio, ...fadeMask }}
         >
           <Image
